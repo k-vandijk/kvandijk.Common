@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <Version>1.0.0</Version>
+    <PackageId>kvandijk.Common</PackageId>
+    <Authors>Kevin van Dijk</Authors>
+    <Company>kvandijk</Company>
+    <Description>Package for common code in .NET projects.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+
+    <RepositoryUrl>https://github.com/k-vandijk/kvandijk.Common</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/k-vandijk/kvandijk.Common</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <Title>Common</Title>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>

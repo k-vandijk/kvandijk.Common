@@ -1,2 +1,1 @@
-# kvandijk.Common
-Package for common code in .NET projects.
+To publish a new release, build using `dotnet build -c Release`, and then publish using `dotnet nuget push bin/Release/kvandijk.Common.1.0.0.nupkg --source "github" --api-key YOUR_GITHUB_PAT`
