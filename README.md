@@ -1,7 +1,17 @@
 
 ## How to contribute
 
-To publish a new release, build using `dotnet build -c Release`, and then publish using `dotnet nuget push bin/Release/kvandijk.Common.1.0.0.nupkg --source "github" --api-key YOUR_GITHUB_PAT`
+To publish a new release, build using 
+
+```terminal
+dotnet build -c Release
+```
+
+Then publish using
+
+```terminal
+dotnet nuget push bin/Release/kvandijk.Common.1.0.0.nupkg --source "github" --api-key YOUR_GITHUB_PAT
+```
 
 ## How to use
 
@@ -16,10 +26,37 @@ Include the following file in the root of your project `NuGet.Config`:
   <packageSourceCredentials>
     <github>
       <add key="Username" value="k-vandijk" />
-      <add key="ClearTextPassword" value="<GITHUB_PAT_TOKEN>" />
+      <add key="ClearTextPassword" value="YOUR_GITHUB_PAT" />
     </github>
   </packageSourceCredentials>
 </configuration>
 ```
 
-Then, you can install the package using `dotnet add package kvandijk.Common`
+Then, you can install the package using 
+
+```terminal
+dotnet add package kvandijk.Common
+```
+
+Configure *logging* and *middleware* in `Program.cs` using
+
+```c#
+using kvandijk.Common.Logging;
+using kvandijk.Common.Middleware;
+...
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add Serilog
+builder.ConfigureSerilog();
+
+...
+
+var app = builder.Build();
+
+// Middleware pipeline configuration
+app.UseMiddleware<ExceptionLoggingMiddleware>();
+app.UseMiddleware<RequestLoggingMiddleware>();
+
+...
+```
