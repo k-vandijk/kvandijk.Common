@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <PackageId>kvandijk.Common</PackageId>
     <Authors>Kevin van Dijk</Authors>
     <Company>kvandijk</Company>
