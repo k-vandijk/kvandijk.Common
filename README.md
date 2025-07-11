@@ -38,12 +38,15 @@ Then, you can install the package using
 dotnet add package kvandijk.Common
 ```
 
-Configure *logging* and *middleware* in `Program.cs` using
+Configure *logging*, *middleware* and *environment variables* in `Program.cs` using
 
 ```c#
 using kvandijk.Common.Logging;
 using kvandijk.Common.Middleware;
 ...
+
+// Load environment variables
+DotenvLoader.Load(Path.Combine(Directory.GetCurrentDirectory(), ".env"));
 
 var builder = WebApplication.CreateBuilder(args);
 
