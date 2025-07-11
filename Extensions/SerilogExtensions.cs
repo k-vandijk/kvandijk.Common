@@ -2,7 +2,7 @@
 using Serilog;
 using Serilog.Events;
 
-namespace kvandijk.Common.Logging;
+namespace kvandijk.Common.Extensions;
 
 public static class SerilogExtensions
 {

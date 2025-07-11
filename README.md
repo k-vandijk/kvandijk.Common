@@ -1,17 +1,28 @@
+## Package content
 
-## How to contribute
+This package contains common functionality used across multiple projects, including:
 
-To publish a new release, build using 
+### Models
 
-```terminal
-dotnet build -c Release
-```
+- `BaseEntity`: A base class for entities with an `Id`, `CreatedAt`, `UpdatedAt`, and `DeletedAt` properties.
+- `BlamingEntity`: An extension of `BaseEntity` that includes `CreatedBy`, `UpdatedBy` and `DeletedBy` properties for tracking user actions.
 
-Then publish using
+### Extensions
+- `SerilogExtensions`: Provides methods to configure Serilog for logging.
 
-```terminal
-dotnet nuget push bin/Release/kvandijk.Common.1.0.0.nupkg --source "github" --api-key YOUR_GITHUB_PAT
-```
+### Interfaces
+- `IHashingService`: An interface for hashing services.
+- `IRepository`: A generic repository interface for CRUD operations.
+
+### Middleware
+- `ExceptionLoggingMiddleware`: Generic middleware for logging exceptions.
+- `RequestLoggingMiddleware`: Middleware for logging HTTP requests.
+
+### Services
+- `HashingService`: A service that implements `IHashingService` for hashing strings.
+
+### Utils
+- `DotenvLoader`: A utility for loading environment variables from a `.env` file.
 
 ## How to use
 
@@ -26,13 +37,13 @@ Include the following file in the root of your project `NuGet.Config`:
   <packageSourceCredentials>
     <github>
       <add key="Username" value="k-vandijk" />
-      <add key="ClearTextPassword" value="YOUR_GITHUB_PAT" />
+      <add key="ClearTextPassword" value="GITHUB_PAT" />
     </github>
   </packageSourceCredentials>
 </configuration>
 ```
 
-Then, you can install the package using 
+Then you can install the package using 
 
 ```terminal
 dotnet add package kvandijk.Common
