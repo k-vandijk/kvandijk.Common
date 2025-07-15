@@ -57,7 +57,7 @@ using kvandijk.Common.Middleware;
 ...
 
 // Load environment variables
-DotenvLoader.Load(Path.Combine(Directory.GetCurrentDirectory(), ".env"));
+DotenvLoader.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
