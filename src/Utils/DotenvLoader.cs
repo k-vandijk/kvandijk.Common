@@ -9,7 +9,7 @@ public static class DotenvLoader
     /// Loads environment variables from a specified .env file.
     /// </summary>
     /// <param name="fileName">The name of the .env file, typically '.env'.</param>
-    public static void Load(string? fileName)
+    public static void Load(string? fileName = null)
     {
         var filePath = FindFileUpwards(fileName ?? ".env");
 
