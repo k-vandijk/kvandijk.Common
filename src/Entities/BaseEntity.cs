@@ -1,4 +1,4 @@
-﻿namespace kvandijk.Common.Entities;
+namespace kvandijk.Common.Entities;
 
 /// <summary>
 /// The BaseEntity class provides all entities with a unique identifier and timestamps for creation, update, and deletion.

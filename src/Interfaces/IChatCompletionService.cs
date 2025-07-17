@@ -1,4 +1,4 @@
-﻿namespace kvandijk.Common.Interfaces;
+namespace kvandijk.Common.Interfaces;
 
 public interface IChatCompletionService
 {

@@ -1,4 +1,4 @@
-﻿namespace kvandijk.Common.Interfaces;
+namespace kvandijk.Common.Interfaces;
 
 /// <summary>
 /// Service for hashing and verifying passwords using BCrypt.

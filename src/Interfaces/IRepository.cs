@@ -1,4 +1,4 @@
-﻿namespace kvandijk.Common.Interfaces;
+namespace kvandijk.Common.Interfaces;
 
 /// <summary>
 /// The Base interface for a repository pattern implementation.

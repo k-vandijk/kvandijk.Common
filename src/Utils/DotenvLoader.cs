@@ -1,4 +1,4 @@
-﻿namespace kvandijk.Common.Utils;
+namespace kvandijk.Common.Utils;
 
 /// <summary>
 /// Utility class for loading environment variables from a .env file.

@@ -1,4 +1,4 @@
-﻿namespace kvandijk.Common.Middleware;
+namespace kvandijk.Common.Middleware;
 
 using System.Diagnostics;
 using Microsoft.AspNetCore.Http;

@@ -1,4 +1,4 @@
-﻿namespace kvandijk.Common.Middleware;
+namespace kvandijk.Common.Middleware;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;

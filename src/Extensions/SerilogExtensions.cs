@@ -1,4 +1,4 @@
-﻿namespace kvandijk.Common.Extensions;
+namespace kvandijk.Common.Extensions;
 
 using Microsoft.AspNetCore.Builder;
 using Serilog;
