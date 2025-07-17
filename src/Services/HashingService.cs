@@ -1,4 +1,4 @@
-﻿namespace kvandijk.Common.Services;
+namespace kvandijk.Common.Services;
 
 using kvandijk.Common.Interfaces;
 
