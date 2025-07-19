@@ -1,15 +1,11 @@
-## How to contribute
+# How to publish
 
-To publish a new release, build using 
+...
 
-```terminal
-dotnet build -c Release
-```
+# Github actions secrets
 
-Then publish using:
+To run the GitHub actions, you need to set up the following secrets in your GitHub repository in order to authenticate to the private NuGet package:
 
-**Beware:** Set the version number to the correct version in the `.csproj` file and in the following command before running!
-
-```terminal
-dotnet nuget push src/bin/Release/kvandijk.Common.<VERSION>.nupkg --source "github" --api-key YOUR_GITHUB_PAT
-```
+- **GH_PAT**: GitHub Personal Access Token with `write:packages` and `read:packages` scopes
+- **GH_PRIVATE_FEED_URL**: URL of the private NuGet feed
+- **GH_USERNAME**: GitHub username

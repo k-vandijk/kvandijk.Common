@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CONTRIBUTE.md = CONTRIBUTE.md
 		NuGet.config = NuGet.config
 		README.md = README.md
+		workflow.yml = workflow.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F1F5EBFF-3C6C-4555-856A-29F2CE243D2E}"

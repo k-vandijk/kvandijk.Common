@@ -1,0 +1,37 @@
+name: Build, test and publish NuGet package
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Add private NuGet feed
+        run: |
+            dotnet nuget remove source github || true
+            dotnet nuget add source ${{ secrets.GH_PRIVATE_FEED_URL }} --name github --username ${{ secrets.GH_USERNAME }} --password ${{ secrets.GH_CLEAR_TEXT_PASSWORD }} --store-password-in-clear-text
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build project
+        run: dotnet build --configuration Release
+
+      - name: Run tests
+        run: dotnet test --configuration Release --no-build --verbosity normal
+
+      - name: Pack NuGet package
+        run: dotnet pack --configuration Release --no-build -p:PackageVersion=${{ github.ref_name }} -o ./nupkg
+
+      - name: Push to NuGet
+        run: dotnet nuget push ./nupkg/*.nupkg --source "github" --api-key ${{ secrets.GH_CLEAR_TEXT_PASSWORD }}
