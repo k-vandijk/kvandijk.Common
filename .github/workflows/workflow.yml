@@ -2,7 +2,8 @@ name: Build, test and publish NuGet package
 
 on:
   push:
-    branches: ["master"]
+    tags:
+      - 'v*.*.*'
 
 jobs:
   build:
