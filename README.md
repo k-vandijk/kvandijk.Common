@@ -49,7 +49,7 @@ Then you can install the package using
 dotnet add package kvandijk.Common
 ```
 
-Configure *logging*, *middleware* and *environment variables* in `Program.cs` using
+Configure *logging*, *exception handling* and *environment variables* in `Program.cs` using
 
 ```c#
 using kvandijk.Common.Logging;
