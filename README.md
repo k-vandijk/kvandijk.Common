@@ -7,10 +7,18 @@ This package contains common functionality used across multiple projects, includ
 - `BaseEntity`: A base class for entities with an `Id`, `CreatedAt`, `UpdatedAt`, and `DeletedAt` properties.
 - `BlamingEntity`: An extension of `BaseEntity` that includes `CreatedBy`, `UpdatedBy` and `DeletedBy` properties for tracking user actions.
 
+### Exceptions
+
+- `ChatCompletionException`: Exceptions that are used by the ChatCompletionService.
+
 ### Extensions
+
+- `ChatCompletionExtensions`: Provides methods to configure the ChatCompletionService.
 - `SerilogExtensions`: Provides methods to configure Serilog for logging.
 
 ### Interfaces
+
+- `IChatCompletionService`: An interface for the ChatCompletionService.
 - `IHashingService`: An interface for hashing services.
 - `IRepository`: A generic repository interface for CRUD operations.
 
@@ -19,6 +27,8 @@ This package contains common functionality used across multiple projects, includ
 - `RequestLoggingMiddleware`: Middleware for logging HTTP requests.
 
 ### Services
+
+- `ChatCompletionService`: A service that handles requests to the azure openai api in a more developer-friendly way.
 - `HashingService`: A service that implements `IHashingService` for hashing strings.
 
 ### Utils
@@ -26,24 +36,7 @@ This package contains common functionality used across multiple projects, includ
 
 ## How to use
 
-Include the following file in the root of your project `NuGet.Config`:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <packageSources>
-    <add key="github" value="https://nuget.pkg.github.com/k-vandijk/index.json" />
-  </packageSources>
-  <packageSourceCredentials>
-    <github>
-      <add key="Username" value="k-vandijk" />
-      <add key="ClearTextPassword" value="GITHUB_PAT" />
-    </github>
-  </packageSourceCredentials>
-</configuration>
-```
-
-Then you can install the package using 
+Install the package using:
 
 ```terminal
 dotnet add package kvandijk.Common
