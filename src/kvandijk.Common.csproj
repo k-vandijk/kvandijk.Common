@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 
-    <Version>1.4.0</Version>
+    <Version>1.4.1</Version>
     <PackageId>kvandijk.Common</PackageId>
     <Authors>Kevin van Dijk</Authors>
     <Company>kvandijk</Company>
@@ -28,11 +28,7 @@
   </ItemGroup>
 
   <ItemGroup Label="Development-only dependencies">
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.13.0.120203">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.13.0.120203"><PrivateAssets>all</PrivateAssets></PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118"><PrivateAssets>all</PrivateAssets></PackageReference>
   </ItemGroup>
 </Project>

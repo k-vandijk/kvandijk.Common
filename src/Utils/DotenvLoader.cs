@@ -26,7 +26,18 @@ public static class DotenvLoader
     {
         foreach (var line in File.ReadAllLines(filePath))
         {
-            var parts = line.Split("=", StringSplitOptions.RemoveEmptyEntries);
+            var trimmedLine = line.Trim();
+            if (string.IsNullOrEmpty(trimmedLine) || trimmedLine.StartsWith($"#"))
+            {
+                continue;
+            }
+
+            if (trimmedLine.StartsWith("$env:"))
+            {
+                trimmedLine = trimmedLine.Substring(5).Trim();
+            }
+
+            var parts = trimmedLine.Split("=", StringSplitOptions.RemoveEmptyEntries);
             if (parts.Length != 2)
             {
                 continue;
