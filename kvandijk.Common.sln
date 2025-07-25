@@ -11,9 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		CONTRIBUTE.md = CONTRIBUTE.md
-		NuGet.config = NuGet.config
+		nuget.config = nuget.config
 		README.md = README.md
-		.github/workflows/workflow.yml = .github/workflows/workflow.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F1F5EBFF-3C6C-4555-856A-29F2CE243D2E}"

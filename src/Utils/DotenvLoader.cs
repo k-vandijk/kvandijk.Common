@@ -1,57 +1,35 @@
 namespace kvandijk.Common.Utils;
 
 /// <summary>
-/// Utility class for loading environment variables from a .env file.
+/// Provides functionality to load environment variables from a .env file located upwards in the directory structure.
 /// </summary>
 public static class DotenvLoader
 {
     /// <summary>
-    /// Loads environment variables from a specified .env file.
+    /// Loads an environment file (.env) by searching for it in parent directories.
+    /// If the file is found, its content is utilized to set environment variables.
     /// </summary>
-    /// <param name="fileName">The name of the .env file, typically '.env'.</param>
-    public static void Load(string? fileName = null)
+    /// <param name="fileName">The name of the file to load. If not provided, the default is ".env".</param>
+    /// <param name="maxLevels">The maximum number of parent directories to search for the file. Default value is 3.</param>
+    public static void Load(string? fileName = null, int maxLevels = 3)
     {
-        var filePath = FindFileUpwards(fileName ?? ".env");
+        fileName ??= ".env";
+        var filePath = FindFileUpwards(fileName, maxLevels);
 
-        if (filePath != null)
+        if (filePath == null)
         {
-            SetEnvironmentVariables(filePath);
-            return;
+            throw new FileNotFoundException(".env file not found in any parent directory.");
         }
 
-        throw new FileNotFoundException(".env file not found in any parent directory.");
+        SetEnvironmentVariables(filePath);
     }
 
-    private static void SetEnvironmentVariables(string filePath)
-    {
-        foreach (var line in File.ReadAllLines(filePath))
-        {
-            var trimmedLine = line.Trim();
-            if (string.IsNullOrEmpty(trimmedLine) || trimmedLine.StartsWith($"#"))
-            {
-                continue;
-            }
-
-            if (trimmedLine.StartsWith("$env:"))
-            {
-                trimmedLine = trimmedLine.Substring(5).Trim();
-            }
-
-            var parts = trimmedLine.Split("=", StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length != 2)
-            {
-                continue;
-            }
-
-            Environment.SetEnvironmentVariable(parts[0].Trim(), parts[1].Trim());
-        }
-    }
-
-    private static string? FindFileUpwards(string fileName)
+    private static string? FindFileUpwards(string fileName, int maxLevels)
     {
         var dir = new DirectoryInfo(Directory.GetCurrentDirectory());
+        int level = 0;
 
-        while (dir != null)
+        while (dir != null && level < maxLevels)
         {
             var fullPath = Path.Combine(dir.FullName, fileName);
             if (File.Exists(fullPath))
@@ -60,8 +38,25 @@ public static class DotenvLoader
             }
 
             dir = dir.Parent;
+            level++;
         }
 
         return null;
+    }
+
+    private static void SetEnvironmentVariables(string filePath)
+    {
+        var lines = File.ReadAllLines(filePath);
+
+        foreach (var line in lines)
+        {
+            var parts = line.Split("=", StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length != 2)
+            {
+                continue;
+            }
+
+            Environment.SetEnvironmentVariable(parts[0].Trim(), parts[1].Trim());
+        }
     }
 }
