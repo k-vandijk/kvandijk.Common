@@ -1,32 +1,18 @@
-## How to contribute
+# How to publish
 
-To publish a new release, build using 
+To publish changes to the NuGet package, follow these steps:
 
-```terminal
-dotnet build -c Release
-```
+1. Ensure you have the latest version of the code and have committed all your changes.
+2. Update the version number in the `.csproj` file if necessary.
+3. Run the following command to create the NuGet package:
+   ```bash
+   dotnet pack -c Release
+   ```
+4. Publish the package to NuGet.org using the following commands:
+   ```bash
+   dotnet nuget push "bin/Release/kvandijk.Common.<VERSION>.nupkg" --api-key <YOUR_API_KEY> --source https://api.nuget.org/v3/index.json
+   ```
 
-Then publish using:
-
-**Beware:** Set the version number to the correct version in the `.csproj` file and in the following command before running!
-
-`Only once:`
-
-Make sure there is a 'minimal working' xml file in the root of the repository named `nuget.config`:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <packageSources>
-  </packageSources>
-</configuration>
-```
-
-```terminal
-dotnet nuget add source "https://nuget.pkg.github.com/<owner>/index.json" --name "github" --username <your-github-username> --password <your-personal-access-token> --store-password-in-clear-text
-```
-
-`Then:`
-
-```terminal
-dotnet nuget push src/bin/Release/kvandijk.Common.<VERSION>.nupkg --source github
-```
+   ```bash
+   dotnet nuget push "bin/Release/kvandijk.Common.<VERSION>.snupkg" --api-key <YOUR_API_KEY> --source https://api.nuget.org/v3/index.json
+   ```

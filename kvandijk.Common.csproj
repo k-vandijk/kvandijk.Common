@@ -1,24 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFrameworks>net9.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 
-    <Version>1.4.2</Version>
+    <!-- NuGet metadata -->
+    <IsPackable>true</IsPackable>
     <PackageId>kvandijk.Common</PackageId>
+    <Version>0.1.0</Version>
     <Authors>Kevin van Dijk</Authors>
     <Company>kvandijk</Company>
     <Description>Package for common code in .NET projects.</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
-
-    <RepositoryUrl>https://github.com/k-vandijk/kvandijk.Common</RepositoryUrl>
     <PackageProjectUrl>https://github.com/k-vandijk/kvandijk.Common</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/k-vandijk/kvandijk.Common.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Title>Common</Title>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <ItemGroup Label="Runtime dependencies">
     <PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
@@ -28,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup Label="Development-only dependencies">
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.13.0.120203"><PrivateAssets>all</PrivateAssets></PackageReference>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.15.0.120848"><PrivateAssets>all</PrivateAssets></PackageReference>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118"><PrivateAssets>all</PrivateAssets></PackageReference>
   </ItemGroup>
 </Project>

@@ -7,18 +7,12 @@ This package contains common functionality used across multiple projects, includ
 - `BaseEntity`: A base class for entities with an `Id`, `CreatedAt`, `UpdatedAt`, and `DeletedAt` properties.
 - `BlamingEntity`: An extension of `BaseEntity` that includes `CreatedBy`, `UpdatedBy` and `DeletedBy` properties for tracking user actions.
 
-### Exceptions
-
-- `ChatCompletionException`: Exceptions that are used by the ChatCompletionService.
-
 ### Extensions
 
-- `ChatCompletionExtensions`: Provides methods to configure the ChatCompletionService.
 - `SerilogExtensions`: Provides methods to configure Serilog for logging.
 
 ### Interfaces
 
-- `IChatCompletionService`: An interface for the ChatCompletionService.
 - `IHashingService`: An interface for hashing services.
 - `IRepository`: A generic repository interface for CRUD operations.
 
@@ -28,7 +22,6 @@ This package contains common functionality used across multiple projects, includ
 
 ### Services
 
-- `ChatCompletionService`: A service that handles requests to the azure openai api in a more developer-friendly way.
 - `HashingService`: A service that implements `IHashingService` for hashing strings.
 
 ### Utils

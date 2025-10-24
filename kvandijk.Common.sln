@@ -3,19 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36202.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kvandijk.Common", "src\kvandijk.Common.csproj", "{63251047-E85E-15BE-7C1D-F73DC0727F72}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
-	ProjectSection(SolutionItems) = preProject
-		.documentignore = .documentignore
-		.editorconfig = .editorconfig
-		.gitignore = .gitignore
-		CONTRIBUTE.md = CONTRIBUTE.md
-		nuget.config = nuget.config
-		README.md = README.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F1F5EBFF-3C6C-4555-856A-29F2CE243D2E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kvandijk.Common", "kvandijk.Common.csproj", "{63251047-E85E-15BE-7C1D-F73DC0727F72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,9 +18,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{63251047-E85E-15BE-7C1D-F73DC0727F72} = {F1F5EBFF-3C6C-4555-856A-29F2CE243D2E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E49CC7DE-257F-49AE-9028-A6963870FA0C}
