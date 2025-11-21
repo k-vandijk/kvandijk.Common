@@ -2,7 +2,7 @@
 
 This package contains common functionality used across multiple projects, including:
 
-### Models
+### Entities
 
 - `BaseEntity`: A base class for entities with an `Id`, `CreatedAt`, `UpdatedAt`, and `DeletedAt` properties.
 - `BlamingEntity`: An extension of `BaseEntity` that includes `CreatedBy`, `UpdatedBy` and `DeletedBy` properties for tracking user actions.
