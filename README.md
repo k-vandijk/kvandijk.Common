@@ -2,6 +2,12 @@
 
 This package contains common functionality used across multiple projects, including:
 
+
+### Diagnostics
+
+- `RequestTimingMiddleware`: Middleware for measuring and logging the time taken to process HTTP requests.
+- `SkipRequestTimingAttribute`: An attribute to skip request timing for specific endpoints.
+
 ### Entities
 
 - `BaseEntity`: A base class for entities with an `Id`, `CreatedAt`, `UpdatedAt`, and `DeletedAt` properties.
@@ -57,6 +63,7 @@ var app = builder.Build();
 // Middleware pipeline configuration
 app.UseMiddleware<ExceptionLoggingMiddleware>();
 app.UseMiddleware<RequestLoggingMiddleware>();
+app.UseMiddleware<RequestTimingMiddleware>();
 
 ...
 ```
