@@ -2,6 +2,11 @@
 
 This package contains common functionality used across multiple projects, including:
 
+### BackgroundTasks
+
+- `BackgroundTaskQueue`: A thread-safe queue for managing background tasks.
+- `IBackgroundTaskQueue`: An interface for the background task queue.
+- `QueuedWorker`: A hosted service that processes tasks from the `BackgroundTaskQueue`.
 
 ### Diagnostics
 
@@ -66,4 +71,14 @@ app.UseMiddleware<RequestLoggingMiddleware>();
 app.UseMiddleware<RequestTimingMiddleware>();
 
 ...
+```
+
+Configure background tasks in `Program.cs` using
+```c
+using kvandijk.Common.BackgroundTasks;
+
+...
+
+services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
+services.AddHostedService<QueuedWorker>();
 ```
