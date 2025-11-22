@@ -1,0 +1,13 @@
+﻿#top-loading-bar {
+    position: fixed;
+    top: var(--header-height);
+    left: var(--sidebar-width);
+    right: 0;
+    height: 4px;
+    background: var(--verdel-blue-gradient);
+    z-index: 1001;
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: width 0.3s ease-out, opacity 0.2s ease-out;
+}

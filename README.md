@@ -38,6 +38,10 @@ This package contains common functionality used across multiple projects, includ
 ### Utils
 - `DotenvLoader`: A utility for loading environment variables from a `.env` file.
 
+### wwwroot
+- `top-loading-bar.css`: A CSS file for a top loading bar UI component.
+- `top-loading-bar.js`: A JavaScript file for a top loading bar UI component.
+
 ## How to use
 
 Install the package using:
