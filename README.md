@@ -86,3 +86,21 @@ using kvandijk.Common.BackgroundTasks;
 services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
 services.AddHostedService<QueuedWorker>();
 ```
+
+Example usage of the loading bar in a Razor page:
+```
+<link rel="stylesheet" href="/_content/kvandijk.Common/top-loading-bar.css" />
+<script src="/_content/kvandijk.Common/top-loading-bar.js"></script>
+
+<style>
+    :root {
+        --kvandijk-loading-bar-offset-y: var(--header-height);
+        --kvandijk-loading-bar-offset-x: var(--sidebar-width);
+        --kvandijk-loading-bar-color: var(--verdel-blue-gradient);
+        --kvandijk-loading-bar-height: 4px;
+        --kvandijk-loading-bar-z: 1001;
+        --kvandijk-loading-bar-transition: width 0.3s ease-out, opacity 0.2s ease-out;
+    }
+</style>
+<div id="top-loading-bar"></div>
+```

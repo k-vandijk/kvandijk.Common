@@ -1,13 +1,22 @@
-﻿#top-loading-bar {
+﻿:root, [data-loading-bar-root] {
+    --kvandijk-loading-bar-offset-y: 0;
+    --kvandijk-loading-bar-offset-x: 0;
+    --kvandijk-loading-bar-color: linear-gradient(90deg,#0077c8,#00a4ff);
+    --kvandijk-loading-bar-height: 4px;
+    --kvandijk-loading-bar-z: 1001;
+    --kvandijk-loading-bar-transition: width 0.3s ease-out, opacity 0.2s ease-out;
+}
+
+#top-loading-bar {
     position: fixed;
-    top: var(--header-height);
-    left: var(--sidebar-width);
+    top: var(--kvandijk-loading-bar-offset-y, 0);
+    left: var(--kvandijk-loading-bar-offset-x, 0);
     right: 0;
-    height: 4px;
-    background: var(--verdel-blue-gradient);
-    z-index: 1001;
+    height: var(--kvandijk-loading-bar-height, 4px);
+    background: var(--kvandijk-loading-bar-color, linear-gradient(90deg,#0077c8,#00a4ff));
+    z-index: var(--kvandijk-loading-bar-z, 1001);
     width: 0;
     opacity: 0;
     pointer-events: none;
-    transition: width 0.3s ease-out, opacity 0.2s ease-out;
+    transition: var(--kvandijk-loading-bar-transition, width 0.3s ease-out, opacity 0.2s ease-out);
 }

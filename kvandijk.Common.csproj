@@ -1,4 +1,5 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+  
   <PropertyGroup>
     <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -8,7 +9,7 @@
     <!-- NuGet metadata -->
     <IsPackable>true</IsPackable>
     <PackageId>kvandijk.Common</PackageId>
-    <Version>0.4.0</Version>
+    <Version>0.4.2</Version>
     <Authors>Kevin van Dijk</Authors>
     <Company>kvandijk</Company>
     <Description>Package for common code in .NET projects.</Description>
@@ -34,11 +35,5 @@
     <PackageReference Include="SonarAnalyzer.CSharp" Version="10.15.0.120848"><PrivateAssets>all</PrivateAssets></PackageReference>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118"><PrivateAssets>all</PrivateAssets></PackageReference>
   </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="wwwroot\**\*">
-      <PackagePath>wwwroot\</PackagePath>
-      <IncludeInPackage>true</IncludeInPackage>
-    </Content>
-  </ItemGroup>
+  
 </Project>
