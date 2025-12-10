@@ -9,7 +9,7 @@
     <!-- NuGet metadata -->
     <IsPackable>true</IsPackable>
     <PackageId>kvandijk.Common</PackageId>
-    <Version>0.4.2</Version>
+    <Version>0.5.0</Version>
     <Authors>Kevin van Dijk</Authors>
     <Company>kvandijk</Company>
     <Description>Package for common code in .NET projects.</Description>

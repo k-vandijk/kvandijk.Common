@@ -1,16 +1,11 @@
-namespace kvandijk.Common.Utils;
+﻿namespace kvandijk.Common.Utils;
 
 /// <summary>
 /// Provides functionality to load environment variables from a .env file located upwards in the directory structure.
+/// Supports quoted values, comments, and values containing '='.
 /// </summary>
 public static class DotenvLoader
 {
-    /// <summary>
-    /// Loads an environment file (.env) by searching for it in parent directories.
-    /// If the file is found, its content is utilized to set environment variables.
-    /// </summary>
-    /// <param name="fileName">The name of the file to load. If not provided, the default is ".env".</param>
-    /// <param name="maxLevels">The maximum number of parent directories to search for the file. Default value is 3.</param>
     public static void Load(string? fileName = null, int maxLevels = 3)
     {
         fileName ??= ".env";
@@ -48,15 +43,34 @@ public static class DotenvLoader
     {
         var lines = File.ReadAllLines(filePath);
 
-        foreach (var line in lines)
+        foreach (var rawLine in lines)
         {
-            var parts = line.Split("=", StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length != 2)
+            var line = rawLine.Trim();
+
+            // Skip empty lines
+            if (string.IsNullOrWhiteSpace(line))
             {
                 continue;
             }
 
-            Environment.SetEnvironmentVariable(parts[0].Trim(), parts[1].Trim());
+            // Split only on the FIRST '=' → allows values to contain '='
+            var idx = line.IndexOf('=');
+            if (idx <= 0)
+            {
+                continue; // malformed line
+            }
+
+            var key = line[..idx].Trim();
+            var value = line[(idx + 1) ..].Trim();
+
+            // Remove surrounding quotes if present
+            if ((value.StartsWith('"') && value.EndsWith('"')) ||
+                (value.StartsWith('\'') && value.EndsWith('\'')))
+            {
+                value = value[1..^1];
+            }
+
+            Environment.SetEnvironmentVariable(key, value);
         }
     }
 }
